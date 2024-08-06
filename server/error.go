@@ -13,8 +13,5 @@ func getErrorStatusCode(message string) int {
 	if strings.HasPrefix(message, serverconst.BadRequest) || strings.HasPrefix(message, serverconst.ValidationErr) {
 		return http.StatusBadRequest
 	}
-	if strings.HasPrefix(message, serverconst.ServiceUnavailableError) {
-		return http.StatusServiceUnavailable
-	}
 	return http.StatusInternalServerError
 }
