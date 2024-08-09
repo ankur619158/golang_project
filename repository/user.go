@@ -91,7 +91,7 @@ func (s *userStorage) GetPerson(personID int64) (*entity.Person, error) {
 
 	var queryResult models.Person
 	err = query.QueryRow(personID).Scan(
-		&queryResult.ID,
+		&queryResult.Name,
 		&queryResult.PhoneNumber,
 		&queryResult.City, &queryResult.State, &queryResult.Street1,
 		&queryResult.Street2, &queryResult.ZipCode,
