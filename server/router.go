@@ -39,8 +39,8 @@ func (s *Server) SetupInternalRoutes() {
 }
 
 func (s *Server) Run() error {
-	port := s.cfg.GetPort()
-	addr := fmt.Sprintf(":%s", port)
+	
+	addr := fmt.Sprintf(":%s", "8000")
 
 	s.SetupInternalRoutes()
 
@@ -55,17 +55,7 @@ func (s *Server) Run() error {
 }
 
 func SetupRouter(cfg config.Config) (*gin.Engine, error) {
-	switch cfg.GetEnv() {
-	case "testing":
-		gin.SetMode(gin.TestMode)
-	case "staging":
-		gin.SetMode(gin.ReleaseMode)
-	case "production":
-		gin.SetMode(gin.ReleaseMode)
-	default:
-		gin.SetMode(gin.DebugMode)
-	}
-
+	
 	r := gin.Default()
 	c := cors.DefaultConfig()
 
